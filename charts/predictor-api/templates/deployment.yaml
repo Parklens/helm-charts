@@ -22,7 +22,7 @@ spec:
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
+        - name: {{ .Values.imagePullSecrets }}
       {{- end }}
       serviceAccountName: {{ include "predictor-api.serviceAccountName" . }}
       securityContext:
@@ -39,14 +39,17 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /
+              path: /health_check
               port: http
           readinessProbe:
             httpGet:
-              path: /
+              path: /health_check
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            {{- include "helpers.list-env-variables" . | indent 12 }}
+          command: ["sh", "-c", "./run.sh"]
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
