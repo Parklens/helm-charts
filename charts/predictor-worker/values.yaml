@@ -77,3 +77,19 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+secret:
+  name: predictor-worker-app-secrets # Environment variable listing
+env:
+  # non sensitive variables
+  normal:
+    LOGLEVEL: "INFO"
+    REDIS_PORT: 3600
+    REDIS_HOST: "redis"
+    BATCH_SIZE: 64
+    REDIS_TIMEOUT: 15
+  # sensitive variables: If you do want to specify secrets, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'secret:'.
+  secret: {}
+    # REDIS_PASSWORD: "demo"
+
