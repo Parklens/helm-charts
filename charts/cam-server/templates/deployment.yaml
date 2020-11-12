@@ -49,7 +49,7 @@ spec:
             {{- include "helpers.list-env-variables" . | indent 12 }}
           command: ["sh", "-c", "./run.sh"]
           {{- if .Values.ovpn.enabled }}
-          args: ["--path=/etc/openvpn"]
+          args: ["--path={{.Values.ovpn.filepath}}"]
           {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
