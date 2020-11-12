@@ -1,8 +1,9 @@
 
 helm.package.all:
+	rm .deploy/*
 	helm package charts/predictor-worker --destination .deploy
-	# helm package charts/predictor-api --destination .deploy
-	# helm package charts/cam-server --destination .deploy
+	helm package charts/predictor-api --destination .deploy
+	helm package charts/cam-server --destination .deploy
 
 cr.index:
 	git checkout gh-pages
