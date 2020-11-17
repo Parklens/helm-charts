@@ -20,7 +20,7 @@ spec:
       labels:
         {{- include "predictor-worker.selectorLabels" . | nindent 8 }}
     spec:
-      {{- with .Values.imagePullSecrets }}
+      {{- if .Values.imagePullSecrets }}
       imagePullSecrets:
         - name: {{ .Values.imagePullSecrets }}
       {{- end }}

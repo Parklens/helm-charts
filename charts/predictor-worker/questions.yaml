@@ -32,13 +32,6 @@ questions:
   required: true
   label: redis port
   group: "REDIS Settings"
-- variable: imagePullSecrets
-  default: "parlens-gcr"
-  description: "imagePullSecrets"
-  type: string
-  required: true
-  label: image pull secrets
-  group: "Security Settings"
 - variable: redisPassword
   default: "false"
   description: "Is a redis password required"
@@ -53,3 +46,10 @@ questions:
     type: string
     label: redis password
     group: "REDIS Settings"
+- variable: imagePullSecrets
+  default: "parlens-gcr"
+  description: "imagePullSecrets"
+  type: string
+  required: true
+  label: image pull secrets
+  group: "Security Settings"
