@@ -47,7 +47,7 @@ questions:
     label: redis password
     group: "REDIS Settings"
 - variable: imagePullSecrets
-  default: "parlens-gcr"
+  default: "parklens-gcr"
   description: "imagePullSecrets"
   type: string
   required: true
