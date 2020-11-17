@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: gcr.io/parklens/predictor-worker-gpu
+  repository: gcr.io/parklens/predictor-worker-cpu
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v0.1.0"
+  # tag: "v0.1.0"
 
 imagePullSecrets: ""
 nameOverride: ""
@@ -61,7 +61,7 @@ resources:
   limits:
     cpu: "1"
     memory: 3Gi
-    nvidia.com/gpu: 1
+    # nvidia.com/gpu: 1
   requests:
     cpu: "1"
     memory: 3Gi
@@ -78,6 +78,9 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+gpu: 
+  enabled: false
 
 secret:
   name: predictor-worker-app-secrets # Environment variable listing
