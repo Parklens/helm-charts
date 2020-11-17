@@ -15,7 +15,7 @@ questions:
     label: GPU Image Repositry URL
   - variable: limits.nvidia.com/gpu
     default: "1"
-    description: "Nvidia k8 Limit Should Not Need to Change"
+    description: "Nvidia K8 Limit Should Not Need to Change"
     type: int
     label: Nvidia k8 Limit
 - variable: env.REDIS_HOST
@@ -38,3 +38,10 @@ questions:
   required: false
   label: redis password
   group: "REDIS Settings"
+- variable: imagePullSecrets
+  default: "parlens-gcr"
+  description: "imagePullSecrets"
+  type: string
+  required: true
+  label: image pull secrets
+  group: "Security Settings"
