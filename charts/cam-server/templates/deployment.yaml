@@ -18,6 +18,21 @@ spec:
       labels:
         {{- include "cam-server.selectorLabels" . | nindent 8 }}
     spec:
+      {{- if .Values.ovpn.enabled }}
+      volumes:
+        - name: vpn-config
+          secret:
+            secretName: vpn-config
+            items:
+                - key: client.ovpn
+                  path: client.ovpn
+        - name: vpn-auth
+          secret:
+            secretName: vpn-auth
+            items:
+                - key: auth.txt
+                  path: auth.txt
+      {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -50,6 +65,13 @@ spec:
           command: ["sh", "-c", "./run.sh"]
           {{- if .Values.ovpn.enabled }}
           args: ["--path={{.Values.ovpn.filepath}}"]
+          {{- end }}
+          {{- if .Values.ovpn.enabled }}
+          volumeMounts:
+            - name: vpn-config
+              mountPath: /etc/openvpn
+            - name: vpn-auth
+              mountPath: /etc/openvpn
           {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:

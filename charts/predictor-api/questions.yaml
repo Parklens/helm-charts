@@ -1,0 +1,46 @@
+questions:
+- variable: env.REDIS_HOST
+  default: "redis"
+  description: "Redis Host"
+  type: string
+  required: true
+  label: redis host
+  group: "REDIS Settings"
+- variable: env.REDIS_POST
+  default: "6379"
+  description: "Redis Port"
+  type: int
+  required: true
+  label: redis port
+  group: "REDIS Settings"
+- variable: redisPassword
+  default: "false"
+  description: "Is a redis password required"
+  type: boolean
+  required: true
+  label: redis password boolean
+  show_subquestion_if: true
+  group: "REDIS Settings"
+  subquestions:
+  - variable: secrets.REDIS_PASSWORD
+    description: "Redis Password"
+    type: string
+    label: redis password
+    group: "REDIS Settings"
+- variable: imagePullSecrets
+  default: "parklens-gcr"
+  description: "imagePullSecrets"
+  type: string
+  required: true
+  label: image pull secrets
+  group: "Security Settings"
+- variable: service.type
+  options: 
+    - "ClusterIP"
+    - "NodePort"
+    - "LoadBalancer"
+  description: "service type"
+  type: enum
+  required: true
+  label: service type
+  group: "Service Settings"
