@@ -18,14 +18,14 @@ questions:
     description: "Nvidia K8 Limit Should Not Need to Change"
     type: int
     label: Nvidia k8 Limit
-- variable: env.REDIS_HOST
+- variable: env.normal.REDIS_HOST
   default: "redis"
   description: "Redis Host"
   type: string
   required: true
   label: redis host
   group: "REDIS Settings"
-- variable: env.REDIS_POST
+- variable: env.normal.REDIS_POST
   default: "6379"
   description: "Redis Port"
   type: int
@@ -41,7 +41,7 @@ questions:
   show_subquestion_if: true
   group: "REDIS Settings"
   subquestions:
-  - variable: secrets.REDIS_PASSWORD
+  - variable: env.secret.REDIS_PASSWORD
     description: "Redis Password"
     type: string
     label: redis password
