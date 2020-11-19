@@ -23,3 +23,6 @@ cr.index:
 
 cr.upload: 
 	cr upload -p .deploy
+
+helm.test.cam-server:
+	helm template charts/cam-server

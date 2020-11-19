@@ -22,7 +22,7 @@ spec:
       volumes:
         - name: vpn-config
           secret:
-            secretName: .Values.ovpn.secretName
+            secretName: {{ .Values.ovpn.secretName }}
             items:
                 - key: client.ovpn
                   path: client.ovpn
