@@ -22,20 +22,16 @@ spec:
       volumes:
         - name: vpn-config
           secret:
-            secretName: vpn-config
+            secretName: .Values.ovpn.secretName
             items:
                 - key: client.ovpn
                   path: client.ovpn
-        - name: vpn-auth
-          secret:
-            secretName: vpn-auth
-            items:
                 - key: auth.txt
                   path: auth.txt
       {{- end }}
-      {{- with .Values.imagePullSecrets }}
+      {{- if .Values.imagePullSecrets }}
       imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
+        - name: {{ .Values.imagePullSecrets }}
       {{- end }}
       serviceAccountName: {{ include "cam-server.serviceAccountName" . }}
       securityContext:
@@ -64,13 +60,9 @@ spec:
             {{- include "helpers.list-env-variables" . | indent 12 }}
           command: ["sh", "-c", "./run.sh"]
           {{- if .Values.ovpn.enabled }}
-          args: ["--path={{.Values.ovpn.filepath}}"]
-          {{- end }}
-          {{- if .Values.ovpn.enabled }}
+          args: ["--path=/etc/openvpn"]
           volumeMounts:
             - name: vpn-config
-              mountPath: /etc/openvpn
-            - name: vpn-auth
               mountPath: /etc/openvpn
           {{- end }}
       {{- with .Values.nodeSelector }}

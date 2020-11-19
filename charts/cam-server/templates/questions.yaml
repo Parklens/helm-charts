@@ -1,0 +1,101 @@
+questions:
+- variable: ovpn.enabled
+  default: "false"
+  description: "If true will connect to a supplied vpn config"
+  type: boolean
+  required: true
+  label: opvn boolean
+  show_subquestion_if: true
+  group: "VPN Settings"
+  subquestions:
+  - variable: ovpn.secretName
+    default: "vpn-config"
+    description: "VPN K8 Secret Name (Secret that inlcudes client.ovpn & auth.txt files)"
+    type: string
+    label: vpn config secret name
+    group: "VPN Settings"
+- variable: imagePullSecrets
+  default: "parklens-gcr"
+  description: "imagePullSecrets"
+  type: string
+  required: true
+  label: image pull secrets
+  group: "Security Settings"
+- variable: service.type
+  options: 
+    - "ClusterIP"
+    - "NodePort"
+    - "LoadBalancer"
+  description: "service type"
+  type: enum
+  required: true
+  label: service type
+  group: "Service Settings"
+- variable: env.normal.LOGLEVEL
+  options: 
+    - "DEBUG"
+    - "INFO"
+    - "WARNING"
+    - "ERROR"
+  description: "log level"
+  type: enum
+  required: true
+  label: log level
+  group: "Cam Server Config"
+- variable: env.normal.EVENT_SUBSCRIPTIONS
+  options: 
+    - "['fopark_event']"
+    - "['park_assist_event']"
+    - "['fopark_event', 'park_assist_event']"
+  description: "stall event integrations"
+  type: enum
+  required: true
+  label: log level
+  group: "Integration Config"
+- variable: env.normal.PA_EVENT_URL
+  description: "parkassist event integration url"
+  default: "https://api.parklens.com/v2"
+  type: string
+  required: true
+  show_if: "env.normal.EVENT_SUBSCRIPTIONS=['park_assist_event'] || env.normal.EVENT_SUBSCRIPTIONS=['fopark_event', 'park_assist_event']"
+  label: parkassist event url
+  group: "Integration Config"
+- variable: env.secret.PA_EVENT_AUTH_TOKEN
+  description: "parkassist event auth token"
+  type: string
+  required: true
+  show_if: "env.normal.EVENT_SUBSCRIPTIONS=['park_assist_event'] || env.normal.EVENT_SUBSCRIPTIONS=['fopark_event', 'park_assist_event']"
+  label: parkassist event url
+  group: "Integration Config"
+- variable: env.normal.LOT_ID
+  description: "parklens lot id"
+  type: int
+  required: true
+  label: log id
+  group: "Cam Server Config"
+- variable: env.normal.PARKLENS_API_URL
+  description: "parklens api url"
+  default: "https://api.parklens.com/v2"
+  type: string
+  required: true
+  label: api url
+  group: "Cam Server Config"
+- variable: env.normal.PARKLENS_PREDICTOR_URL
+  description: "parklens api url"
+  default: "https://api.parklens.com/predictor/v1"
+  type: string
+  required: true
+  label: predictor url
+  group: "Cam Server Config"
+- variable: env.normal.PARKLENS_REFRESH
+  description: "parklens jwt refresh token"
+  type: string
+  required: true
+  label: refresh token
+  group: "Cam Server Config"
+- variable: env.normal.CAMERA_IDS
+  description: "camera id allow list example: [1,2,3]"
+  type: string
+  required: false
+  label: camera allow list
+  group: "Cam Server Config"

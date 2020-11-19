@@ -6,7 +6,7 @@ image:
   repository: gcr.io/parklens/cam-server
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v0.1.0"
+  # tag: "v0.1.0"
 
 imagePullSecrets: parklens-gcr
 nameOverride: ""
@@ -69,8 +69,6 @@ tolerations: []
 
 affinity: {}
 
-entryCommand: ["sh", "-c", "/app/run.sh", "--path=/etc/openvpn"]
-
 secret:
   name: cam-server-app-secrets # Environment variable listing
 env:
@@ -79,10 +77,10 @@ env:
     LOGLEVEL: "INFO"
     PORT: 80
     JWT_PUBLIC_KEY_PATH: "jwt/jwt_rsa.pub"
-    EVENT_SUBSCRIPTIONS: "['fopark_event', 'park_assist_event']"
+    EVENT_SUBSCRIPTIONS: "['fopark_event']"
     LOT_ID: 123
     PARKLENS_API_URL: "https://api.parklens.com/v2"
-    PARKLENS_PREDICTOR_URL: "http://predictor-api/v1"
+    PARKLENS_PREDICTOR_URL: "https://api.parklens.com/predictor/v1"
     PA_EVENT_URL: "change to pa url"
     # CAMERA_IDS: [1,2,3]
   # sensitive variables: If you do want to specify secrets, uncomment the following
@@ -93,5 +91,4 @@ env:
     # PA_EVENT_AUTH_TOKEN: "test-token"
 
 ovpn:
-  enabled: true
-  filepath: "/etc/openvpn"
+  enabled: false
