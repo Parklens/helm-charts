@@ -58,9 +58,12 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
             {{- include "helpers.list-env-variables" . | indent 12 }}
-          command: ["sh", "-c", "./run.sh"]
           {{- if .Values.ovpn.enabled }}
-          args: ["--path=/etc/openvpn"]
+          command: ["sh", "-c", "./run.sh", "--path=/etc/openvpn"]
+          {{ else }}
+          command: ["sh", "-c", "./run.sh"]
+          {{- end }}
+          {{- if .Values.ovpn.enabled }}
           volumeMounts:
             - name: vpn-config
               mountPath: /etc/openvpn
