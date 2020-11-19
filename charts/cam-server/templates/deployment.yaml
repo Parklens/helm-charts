@@ -59,7 +59,7 @@ spec:
           env:
             {{- include "helpers.list-env-variables" . | indent 12 }}
           {{- if .Values.ovpn.enabled }}
-          command: ["sh", "-c", "./run.sh", "--path=/etc/openvpn"]
+          command: ["sh", "-c", "./run.sh --path=/etc/openvpn"]
           {{ else }}
           command: ["sh", "-c", "./run.sh"]
           {{- end }}
