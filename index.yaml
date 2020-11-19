@@ -3,6 +3,16 @@ entries:
   cam-server:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2020-11-19T00:41:17.623013144-06:00"
+    description: A Helm chart for Kubernetes
+    digest: 27654605cdf80cec04f67567ab3a823027efc50b3513b7f28d3586ed6e068ee2
+    name: cam-server
+    type: application
+    urls:
+    - https://github.com/Parklens/helm-charts/releases/download/cam-server-0.1.11/cam-server-0.1.11.tgz
+    version: 0.1.11
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2020-11-19T00:11:59.818587146-06:00"
     description: A Helm chart for Kubernetes
     digest: 69ae188ece4b61e383f1a5e2feaed7986a91be735ce561bf73354a61c394734c
