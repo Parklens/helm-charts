@@ -97,7 +97,7 @@ questions:
   group: "Cam Server Config"
 - variable: env.normal.CAMERA_IDS
   description: "camera id allow list example: [1,2,3]"
-  default: null
+  default: "[]"
   type: string
   required: false
   label: camera allow list
