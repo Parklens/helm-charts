@@ -49,7 +49,7 @@ questions:
     - "['fopark_event', 'park_assist_event']"
   description: "stall event integrations"
   type: enum
-  required: true
+  required: false
   label: event integration options
   group: "Integration Config"
 - variable: env.normal.PA_EVENT_URL
