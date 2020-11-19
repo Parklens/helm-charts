@@ -50,7 +50,7 @@ questions:
   description: "stall event integrations"
   type: enum
   required: true
-  label: log level
+  label: event integration options
   group: "Integration Config"
 - variable: env.normal.PA_EVENT_URL
   description: "parkassist event integration url"
@@ -71,7 +71,7 @@ questions:
   description: "parklens lot id"
   type: int
   required: true
-  label: log id
+  label: lot id
   group: "Cam Server Config"
 - variable: env.normal.PARKLENS_API_URL
   description: "parklens api url"
@@ -87,7 +87,7 @@ questions:
   required: true
   label: predictor url
   group: "Cam Server Config"
-- variable: env.normal.PARKLENS_REFRESH
+- variable: env.secret.PARKLENS_REFRESH
   description: "parklens jwt refresh token"
   type: string
   required: true
