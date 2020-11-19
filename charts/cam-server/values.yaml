@@ -92,3 +92,4 @@ env:
 
 ovpn:
   enabled: false
+  secretName: "vpn-config"
