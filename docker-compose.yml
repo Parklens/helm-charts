@@ -4,6 +4,8 @@ services:
     image: "rancher/rancher"
     restart: always
     privileged: true
+    cap_add:
+      - net_admin
     ports:
       - "80:80"
       - "443:443"
