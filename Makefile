@@ -1,6 +1,5 @@
 
 helm.package.all:
-	make clear.deploys
 	make helm.package.cam-server
 	make helm.package.predictor-api
 	make helm.package.predictor-worker
