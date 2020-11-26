@@ -1,6 +1,16 @@
 apiVersion: v1
 entries:
   cam-server:
+  - apiVersion: v1
+    appVersion: 0.1.1
+    created: "2020-11-26T00:19:46.003421654-06:00"
+    description: A Helm chart for Kubernetes
+    digest: 67179406bb2eb9cefaec1390ad40c3e6d676f26bca5415bde8c2eacdc6b5dc7f
+    name: cam-server
+    type: application
+    urls:
+    - https://github.com/Parklens/helm-charts/releases/download/cam-server-0.1.16/cam-server-0.1.16.tgz
+    version: 0.1.16
   - apiVersion: v2
     appVersion: 0.1.1
     created: "2020-11-25T23:23:33.863993567-06:00"
@@ -162,6 +172,16 @@ entries:
     - https://github.com/Parklens/helm-charts/releases/download/cam-server-0.1.0/cam-server-0.1.0.tgz
     version: 0.1.0
   predictor-api:
+  - apiVersion: v1
+    appVersion: 0.1.1
+    created: "2020-11-26T00:19:46.129482097-06:00"
+    description: A Helm chart for Kubernetes
+    digest: 5237497e657bf606ee33a64431e443e498403d4b1cd1d19878abc22bbf30dea0
+    name: predictor-api
+    type: application
+    urls:
+    - https://github.com/Parklens/helm-charts/releases/download/predictor-api-0.1.7/predictor-api-0.1.7.tgz
+    version: 0.1.7
   - apiVersion: v2
     appVersion: 0.1.1
     created: "2020-11-25T23:23:33.995999185-06:00"
@@ -233,6 +253,16 @@ entries:
     - https://github.com/Parklens/helm-charts/releases/download/predictor-api-0.1.0/predictor-api-0.1.0.tgz
     version: 0.1.0
   predictor-worker:
+  - apiVersion: v1
+    appVersion: 0.1.1
+    created: "2020-11-26T00:19:46.257064199-06:00"
+    description: A Helm chart for Kubernetes
+    digest: cbc88467c65d9963626333c0faa85a587537abc291660ff424f82f808acadde6
+    name: predictor-worker
+    type: application
+    urls:
+    - https://github.com/Parklens/helm-charts/releases/download/predictor-worker-0.1.11/predictor-worker-0.1.11.tgz
+    version: 0.1.11
   - apiVersion: v2
     appVersion: 0.1.1
     created: "2020-11-18T23:53:00.029932757-06:00"
