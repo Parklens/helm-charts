@@ -44,3 +44,13 @@ questions:
   required: true
   label: service type
   group: "Service Settings"
+- variable: env.normal.JWT_PUBLIC_PATH_KEY
+  options: 
+    - "jwt/stg_jwt_rsa.pub"
+    - "jwt/prd_jwt_rsa.pub"
+  description: "public jwt authentication key"
+  default: "jwt/prd_jwt_rsa.pub"
+  type: enum
+  required: true
+  label: public jwt key
+  group: "Security Settings"

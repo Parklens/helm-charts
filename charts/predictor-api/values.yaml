@@ -87,7 +87,7 @@ env:
     REDIS_PORT: 6379
     REDIS_HOST: "redis"
     PORT: 80
-    JWT_PUBLIC_KEY_PATH: "jwt/jwt_rsa.pub"
+    JWT_PUBLIC_KEY_PATH: "jwt/stg_jwt_rsa.pub"
   # sensitive variables: If you do want to specify secrets, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'secret:'.
   secret: {}

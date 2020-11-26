@@ -77,11 +77,11 @@ env:
   normal:
     LOGLEVEL: "INFO"
     PORT: 80
-    JWT_PUBLIC_KEY_PATH: "jwt/jwt_rsa.pub"
+    JWT_PUBLIC_KEY_PATH: "jwt/stg_jwt_rsa.pub"
     EVENT_SUBSCRIPTIONS: "['fopark_event']"
     LOT_ID: 123
-    PARKLENS_API_URL: "https://api.parklens.com/v2"
-    PARKLENS_PREDICTOR_URL: "https://api.parklens.com/predictor/v1"
+    PARKLENS_API_URL: "https://staging.parklens.com/v2"
+    PARKLENS_PREDICTOR_URL: "https://staging.parklens.com/predictor/v1"
     PA_EVENT_URL: "change to pa url"
     # CAMERA_IDS: [1,2,3]
   # sensitive variables: If you do want to specify secrets, uncomment the following
