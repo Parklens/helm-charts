@@ -44,7 +44,7 @@ questions:
   required: true
   label: service type
   group: "Service Settings"
-- variable: env.normal.JWT_PUBLIC_PATH_KEY
+- variable: env.normal.JWT_PUBLIC_KEY_PATH
   options: 
     - "jwt/stg_jwt_rsa.pub"
     - "jwt/prd_jwt_rsa.pub"
