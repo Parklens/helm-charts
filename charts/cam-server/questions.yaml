@@ -102,7 +102,7 @@ questions:
   required: false
   label: camera allow list
   group: "Cam Server Config"
-- variable: env.normal.JWT_PUBLIC_PATH_KEY
+- variable: env.normal.JWT_PUBLIC_KEY_PATH
   options: 
     - "jwt/stg_jwt_rsa.pub"
     - "jwt/prd_jwt_rsa.pub"

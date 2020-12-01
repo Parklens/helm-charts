@@ -6,7 +6,7 @@ questions:
   required: true
   label: redis host
   group: "REDIS Settings"
-- variable: env.normal.REDIS_POST
+- variable: env.normal.REDIS_PORT
   default: "6379"
   description: "Redis Port"
   type: int
