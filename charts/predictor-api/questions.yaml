@@ -54,3 +54,14 @@ questions:
   required: true
   label: public jwt key
   group: "Security Settings"
+- variable: env.normal.LOGLEVEL
+  options: 
+    - "DEBUG"
+    - "INFO"
+    - "WARNING"
+    - "ERROR"
+  description: "log level"
+  type: enum
+  required: true
+  label: log level
+  group: "Basic Config"
