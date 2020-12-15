@@ -204,6 +204,16 @@ entries:
   predictor-api:
   - apiVersion: v1
     appVersion: 0.1.2
+    created: "2020-12-14T22:30:41.460925628-06:00"
+    description: A Helm chart for Kubernetes
+    digest: 601287acfe192d9fa68825069c232d7cb1d6d46177940813bdb2d476237e97df
+    name: predictor-api
+    type: application
+    urls:
+    - https://github.com/Parklens/helm-charts/releases/download/predictor-api-0.1.12/predictor-api-0.1.12.tgz
+    version: 0.1.12
+  - apiVersion: v1
+    appVersion: 0.1.2
     created: "2020-12-06T23:35:56.07357017-06:00"
     description: A Helm chart for Kubernetes
     digest: 283ff75d2b00dd7f6b9742bc1e16105e6f4c8c566354ba34a0b82b73cb0f9d73
