@@ -25,13 +25,12 @@ serviceAccount:
 
 podAnnotations: {}
 
-podSecurityContext: {}
-  # fsGroup: 2000
-
-securityContext:
+podSecurityContext:
   sysctls:
-    - name: net.core.somaxconn
-      value: "512"
+  - name: net.core.somaxconn
+    value: "512"
+
+securityContext: {}
 
 service:
   type: ClusterIP
