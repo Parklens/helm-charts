@@ -78,7 +78,7 @@ env:
     LOGLEVEL: "INFO"
     PORT: 80
     JWT_PUBLIC_KEY_PATH: "jwt/stg_jwt_rsa.pub"
-    EVENT_SUBSCRIPTIONS: "['fopark_event']"
+    EVENT_SUBSCRIPTIONS: ["fopark_event"]
     LOT_ID: 123
     PARKLENS_API_URL: "https://staging.parklens.com/v2"
     PARKLENS_PREDICTOR_URL: "https://staging.parklens.com/predictor/v1"
