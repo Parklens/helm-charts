@@ -8,7 +8,7 @@ questions:
   show_subquestion_if: true
   group: "GPU Settings"
   subquestions:
-  - variable: image.repositry
+  - variable: image.repository
     default: "gcr.io/parklens/predictor-worker-gpu"
     description: "GPU Image Should Not Need To Change"
     type: string
