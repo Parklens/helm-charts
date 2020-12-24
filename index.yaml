@@ -364,6 +364,16 @@ entries:
     version: 0.1.0
   predictor-worker:
   - apiVersion: v1
+    appVersion: 0.1.2
+    created: "2020-12-23T18:24:29.503508593-06:00"
+    description: A Helm chart for Kubernetes
+    digest: e17ec0efae673b7748b4ce64bbc7b4ad2e7c3d081d0e560e2dc58879992ed0f4
+    name: predictor-worker
+    type: application
+    urls:
+    - https://github.com/Parklens/helm-charts/releases/download/predictor-worker-0.1.13/predictor-worker-0.1.13.tgz
+    version: 0.1.13
+  - apiVersion: v1
     appVersion: 0.1.1
     created: "2020-12-23T11:25:56.580833261-06:00"
     description: A Helm chart for Kubernetes
