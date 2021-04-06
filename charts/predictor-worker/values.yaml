@@ -92,6 +92,7 @@ env:
     REDIS_HOST: "redis"
     BATCH_SIZE: 64
     REDIS_TIMEOUT: 15
+    MODEL_PATH: "models/fine_tuned_20210330-113226.model"
   # sensitive variables: If you do want to specify secrets, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'secret:'.
   secret: {}

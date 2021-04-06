@@ -13,7 +13,7 @@ questions:
     description: "GPU Image Should Not Need To Change"
     type: string
     label: GPU Image Repositry URL
-  - variable: resources.limits.nvidia.com/gpu
+  - variable: resources.limits.nvidia\.com/gpu
     default: "1"
     description: "Nvidia K8 Limit Should Not Need to Change"
     type: int
