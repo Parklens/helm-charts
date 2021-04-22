@@ -114,29 +114,25 @@ questions:
   group: "Cam Server Config"
 - variable: resources.limits.cpu
   description: "cpu limit"
-  default: "4000m"
   type: string
-  required: true
+  required: false
   label: cpu limit
   group: "Compute Resources"
 - variable: resources.limits.memory
   description: "memory limit"
-  default: "4Gi"
   type: string
-  required: true
+  required: false
   label: memory limit
   group: "Compute Resources"
 - variable: resources.requests.cpu
   description: "cpu request"
-  default: "4000m"
   type: string
-  required: true
+  required: false
   label: cpu limit
   group: "Compute Resources"
 - variable: resources.requests.memory
   description: "memory request"
-  default: "4Gi"
   type: string
-  required: true
+  required: false
   label: memory limit
   group: "Compute Resources"
