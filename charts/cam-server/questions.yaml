@@ -112,14 +112,14 @@ questions:
   required: true
   label: public jwt key
   group: "Cam Server Config"
-- variable: resources.limit.cpu
+- variable: resources.limits.cpu
   description: "cpu limit"
   default: "4000m"
   type: string
   required: true
   label: cpu limit
   group: "Compute Resources"
-- variable: resources.limit.memory
+- variable: resources.limits.memory
   description: "memory limit"
   default: "4Gi"
   type: string
