@@ -61,7 +61,11 @@ spec:
             periodSeconds: 10
             timeoutSeconds: 3
           resources:
+            {{- if or (ne .Values.resources.limits.cpu "") (ne .Values.resources.limits.memory "") }}
             {{- toYaml .Values.resources | nindent 12 }}
+            {{ else }}
+            {}
+            {{- end }}
           env:
             {{- include "helpers.list-env-variables" . | indent 12 }}
           {{- if .Values.ovpn.enabled }}
