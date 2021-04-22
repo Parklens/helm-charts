@@ -112,27 +112,36 @@ questions:
   required: true
   label: public jwt key
   group: "Cam Server Config"
-- variable: resources.limits.cpu
-  description: "cpu limit"
-  type: string
-  required: false
-  label: cpu limit
+- variable: resources.enabled
+  default: "false"
+  description: "If true user will need to specify requests and limits for resources"
+  type: boolean
+  required: true
+  label: enable resources
+  show_subquestion_if: true
   group: "Compute Resources"
-- variable: resources.limits.memory
-  description: "memory limit"
-  type: string
-  required: false
-  label: memory limit
-  group: "Compute Resources"
-- variable: resources.requests.cpu
-  description: "cpu request"
-  type: string
-  required: false
-  label: cpu limit
-  group: "Compute Resources"
-- variable: resources.requests.memory
-  description: "memory request"
-  type: string
-  required: false
-  label: memory limit
-  group: "Compute Resources"
+  subquestions:
+  - variable: resources.limits.cpu
+    description: "cpu limit"
+    type: string
+    required: false
+    label: cpu limit
+    group: "Compute Resources"
+  - variable: resources.limits.memory
+    description: "memory limit"
+    type: string
+    required: false
+    label: memory limit
+    group: "Compute Resources"
+  - variable: resources.requests.cpu
+    description: "cpu request"
+    type: string
+    required: false
+    label: cpu limit
+    group: "Compute Resources"
+  - variable: resources.requests.memory
+    description: "memory request"
+    type: string
+    required: false
+    label: memory limit
+    group: "Compute Resources"
