@@ -1,7 +1,7 @@
 questions:
 - variable: env.normal.REACT_APP_CAM_SERVER_URLS
   default: "{}"
-  description: "Cam Server URLs. Ex: {"cam-server-name":"https://cam-server-url.com"}"
+  description: "Cam Server URLs. Ex: {'cam-server-name':'https://cam-server-url.com'}"
   type: string
   required: true
   label: cam server urls
