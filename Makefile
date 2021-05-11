@@ -26,6 +26,5 @@ cr.upload:
 helm.test.cam-server:
 	helm template charts/cam-server
 
-
-helm.test.predictor-worker:
-	helm template charts/cam-server
+helm.test.webapp:
+	helm template charts/cam-server-webapp

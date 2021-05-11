@@ -34,6 +34,13 @@ questions:
   required: true
   label: text color
   group: "Server Config"
+- variable: env.normal.REACT_APP_LOGO_SRC
+  default: "https://fopark.io/wp-content/uploads/2018/06/logo.png"
+  description: "Web App Logo"
+  type: string
+  required: true
+  label: logo url
+  group: "Server Config"
 - variable: imagePullSecrets
   default: "parklens-gcr"
   description: "imagePullSecrets"
