@@ -1,0 +1,53 @@
+questions:
+- variable: env.normal.REACT_APP_CAM_SERVER_URLS
+  default: "{}"
+  description: "Cam Server URLs. Ex: {"cam-server-name":"https://cam-server-url.com"}"
+  type: string
+  required: true
+  label: cam server urls
+  group: "Server Config"
+- variable: env.normal.REACT_APP_CLOUD_URL
+  default: "https://api.parklens.com/v2"
+  description: "Parklens API URL"
+  type: string
+  required: true
+  label: parklens api
+  group: "Server Config"
+- variable: env.normal.REACT_APP_PRIMARY_COLOR
+  default: "#221F20"
+  description: "Web App Primary Color"
+  type: string
+  required: true
+  label: primary color
+  group: "Server Config"
+- variable: env.normal.REACT_APP_SECONDARY_COLOR
+  default: "#496e9b"
+  description: "Web App Secondary Color"
+  type: string
+  required: true
+  label: secondary color
+  group: "Server Config"
+- variable: env.normal.REACT_APP_TEXT_COLOR
+  default: "white"
+  description: "Web App Text Color"
+  type: string
+  required: true
+  label: text color
+  group: "Server Config"
+- variable: imagePullSecrets
+  default: "parklens-gcr"
+  description: "imagePullSecrets"
+  type: string
+  required: true
+  label: image pull secrets
+  group: "Security Settings"
+- variable: service.type
+  options: 
+    - "ClusterIP"
+    - "NodePort"
+    - "LoadBalancer"
+  description: "service type"
+  type: enum
+  required: true
+  label: service type
+  group: "Service Settings"
