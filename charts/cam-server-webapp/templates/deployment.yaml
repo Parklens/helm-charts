@@ -44,11 +44,11 @@ spec:
             failureThreshold: 3
             periodSeconds: 10
             timeoutSeconds: 3
-          readinessProbe:
+          startupProbe:
             httpGet:
-              path: /health
+              path: /health-check
               port: http
-            failureThreshold: 3
+            failureThreshold: 30
             periodSeconds: 10
             timeoutSeconds: 3
           resources:
