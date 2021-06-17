@@ -44,12 +44,12 @@ questions:
   group: "Cam Server Config"
 - variable: env.normal.EVENT_SUBSCRIPTIONS
   options: 
-    - "[]"
-    - "['fopark_event']"
-    - "['park_assist_event']"
-    - "['fopark_event', 'park_assist_event']"
+    - ""
+    - "fopark_event"
+    - "park_assist_event"
+    - "fopark_event, park_assist_event"
   description: "stall event integrations"
-  default: "[]"
+  default: ""
   type: enum
   required: false
   label: event integration options
