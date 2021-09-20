@@ -59,14 +59,14 @@ questions:
   default: "https://api.parkassist.com/services/events/s1"
   type: string
   required: true
-  show_if: "env.normal.EVENT_SUBSCRIPTIONS=['park_assist_event'] || env.normal.EVENT_SUBSCRIPTIONS=['fopark_event', 'park_assist_event]"
+  show_if: "env.normal.EVENT_SUBSCRIPTIONS=park_assist_event || env.normal.EVENT_SUBSCRIPTIONS=fopark_event, park_assist_event"
   label: parkassist event auth token
   group: "Integration Config"
 - variable: env.secret.PA_EVENT_AUTH_TOKEN
   description: "parkassist event auth token"
   type: string
   required: true
-  show_if: "env.normal.EVENT_SUBSCRIPTIONS=['park_assist_event'] || env.normal.EVENT_SUBSCRIPTIONS=['fopark_event', 'park_assist_event']"
+  show_if: "env.normal.EVENT_SUBSCRIPTIONS=park_assist_event || env.normal.EVENT_SUBSCRIPTIONS=fopark_event, park_assist_event"
   label: parkassist event url
   group: "Integration Config"
 - variable: env.normal.LOT_ID
