@@ -102,6 +102,13 @@ questions:
   required: false
   label: camera allow list
   group: "Cam Server Config"
+- variable: env.normal.SNAPSHOT_WAIT_MS
+  description: "Num of milliseconds to wait between snapshots (decimals accepted) ex. 1500. optional"
+  default: 1000
+  type: int
+  required: false
+  label: snapshot wait seconds
+  group: "Cam Server Config"
 - variable: env.normal.JWT_PUBLIC_KEY_PATH
   options: 
     - "jwt/stg_jwt_rsa.pub"
