@@ -107,7 +107,7 @@ questions:
   default: 1000
   type: int
   required: false
-  label: snapshot wait seconds
+  label: snapshot wait milliseconds
   group: "Cam Server Config"
 - variable: env.normal.PORT
   description: "Port the cam server api uses"
@@ -117,11 +117,11 @@ questions:
   label: api port
   group: "Cam Server Config"
 - variable: env.normal.UPDATE_IMAGE_FREQ_MINUTES
-  description: "Frequency of camera image updates to parklens api"
+  description: "Frequency of camera image updates to parklens api for setup (minutes)"
   default: 10
   type: int
   required: false
-  label: camera image update
+  label: camera image update frequency (minutes)
   group: "Cam Server Config"
 - variable: env.normal.JWT_PUBLIC_KEY_PATH
   options: 
