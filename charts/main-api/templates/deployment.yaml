@@ -33,6 +33,12 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+            {{- range .Values.volumeMounts }}
+            - name: {{ .name }}
+              mountPath: {{ .mountPath }}
+              readOnly: {{ .readOnly }}
+            {{- end }}
           ports:
             - name: http
               containerPort: 80
@@ -40,12 +46,12 @@ spec:
           livenessProbe:
             timeoutSeconds: 5
             httpGet:
-              path: /health-check
+              path: /health_check
               port: http
           readinessProbe:
             timeoutSeconds: 5
             httpGet:
-              path: /health-check
+              path: /health_check
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
@@ -53,6 +59,18 @@ spec:
             {{- include "helpers.list-env-variables" . | indent 12 }}
           command: ["sh", "-c", "./run.sh"]
       {{- with .Values.nodeSelector }}
+      volumes:
+        {{- range .Values.volumes }}
+        - name: {{ .name }}
+          {{- if .configMap }}
+          configMap:
+            name: {{ .configMap.name }}
+          {{- end }}
+          {{- if .secret }}
+          secret:
+            secretName: {{ .secret.secretName }}
+          {{- end }}
+        {{- end }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}

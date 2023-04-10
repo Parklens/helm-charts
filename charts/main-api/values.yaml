@@ -77,6 +77,22 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
+volumeMounts:
+  - name: jwt
+    mountPath: "/etc/jwt"
+    readOnly: true
+  - name: google-cloud-key
+    mountPath: /var/secrets/google
+    readOnly: true
+
+volumes:
+  - name: jwt
+    secret:
+      secretName: jwt-keys
+  - name: google-cloud-key
+    secret:
+      secretName: cloudstorage-key
+
 nodeSelector: {}
 
 tolerations: []
@@ -87,12 +103,8 @@ secret:
   name: main-api-app-secrets # Environment variable listing
 env:
   # non sensitive variables
-  normal:
-    LOGLEVEL: "INFO"
-    REDIS_PORT: 6379
-    REDIS_HOST: "redis"
+  normal: 
     PORT: 80
-    JWT_PUBLIC_KEY_PATH: "jwt/stg_jwt_rsa.pub"
   # sensitive variables: If you do want to specify secrets, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'secret:'.
   secret: {}
