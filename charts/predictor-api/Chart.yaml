@@ -1,4 +1,4 @@
-apiVersion: v1
+gapiVersion: v1
 name: predictor-api
 description: A Helm chart for Kubernetes
 
