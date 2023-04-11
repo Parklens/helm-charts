@@ -50,13 +50,13 @@ ingress:
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
     nginx.ingress.kubernetes.io/rewrite-target: "/$2"
   hosts:
-    - host: api.parklens-india.com
+    - host: api.parklensindia.com
       paths:
         - /v2(/|$)(.*)
   tls:
-    - secretName: parklens-ssl
+    - secretName: parklensindia-ssl
       hosts:
-        - api.parklens-india.com
+        - api.parklensindia.com
 
 resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
