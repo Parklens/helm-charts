@@ -1,1 +1,5 @@
 .deploy
+.gcloud
+.jwt
+.ssh
+.values
