@@ -12,6 +12,9 @@ https://tech.paulcz.net/blog/creating-a-helm-chart-monorepo-part-1/
 
 ## MAIN API SETUP
 
+### NGINX K8 Ingress Controller Installation
+https://kubernetes.github.io/ingress-nginx/deploy
+
 ### Cloud Storage Key Secret 
 To create a Google Cloud Storage service account key and store it in a Kubernetes secret, follow these steps:
 

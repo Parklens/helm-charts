@@ -57,8 +57,7 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
             {{- include "helpers.list-env-variables" . | indent 12 }}
-          command: ["sh", "-c", "./run.sh"]
-      {{- with .Values.nodeSelector }}
+          command: ["sh", "-c", "gunicorn -b 0.0.0.0:$${PORT} -c gunicorn_config.py run:app"]
       volumes:
         {{- range .Values.volumes }}
         - name: {{ .name }}
@@ -71,6 +70,7 @@ spec:
             secretName: {{ .secret.secretName }}
           {{- end }}
         {{- end }}
+      {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
