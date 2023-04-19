@@ -67,3 +67,9 @@ This configuration will mount the cloudstorage-key secret to the /var/secrets/go
 
 ### Create Main API jwt-keys secret: 
 `kubectl create secret generic jwt-keys --from-file=jwt_rsa=/path/to/private_key.pem --from-file=jwt_rsa.pub=/path/to/public_key.pem`
+
+### Create Ingress TLS Secrets: 
+`kubectl create secret tls secret-name --cert first-cert-file --key first-key-file`
+
+### Create Registry Secret for Image Pulls:
+`kubectl create secret generic parklens-gcr --from-file=key.json=/path/to/key-file.json`
