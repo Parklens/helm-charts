@@ -28,7 +28,7 @@ spec:
       secretName: {{ .secretName }}
     {{- end }}
   {{- end }}
-  ingressClassName: nginx
+  ingressClassName: {{ $.Values.ingress.ingressClassName }}
   rules:
     {{- range .Values.ingress.hosts }}
     - host: {{ .host | quote }}
