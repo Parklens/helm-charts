@@ -69,6 +69,14 @@ questions:
   show_if: "env.normal.EVENT_SUBSCRIPTIONS=park_assist_event || env.normal.EVENT_SUBSCRIPTIONS=fopark_event, park_assist_event"
   label: parkassist event auth token
   group: "Integration Config"
+- variable: env.secret.PA_ENABLE_MODEL_IMAGE
+  description: "enable sending parkassist model image"
+  type: boolean
+  default: "false"
+  required: true
+  show_if: "env.normal.EVENT_SUBSCRIPTIONS=park_assist_event || env.normal.EVENT_SUBSCRIPTIONS=fopark_event, park_assist_event"
+  label: parkassist enable model image
+  group: "Integration Config"
 - variable: env.normal.LOT_ID
   description: "parklens lot id"
   type: int
