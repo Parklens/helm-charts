@@ -94,6 +94,8 @@ volumes:
     secret:
       secretName: cloudstorage-key
 
+terminationGracePeriodSeconds: 30
+
 nodeSelector: {}
 
 tolerations: []

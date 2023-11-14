@@ -38,6 +38,9 @@ spec:
           env:
             {{- include "helpers.list-env-variables" . | indent 12 }}
           command: ["sh", "-c", "./predictor-worker"]
+      {{- if .Values.terminationGracePeriodSeconds }}
+      terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
