@@ -69,7 +69,7 @@ questions:
   show_if: "env.normal.EVENT_SUBSCRIPTIONS=park_assist_event || env.normal.EVENT_SUBSCRIPTIONS=fopark_event, park_assist_event"
   label: parkassist event auth token
   group: "Integration Config"
-- variable: env.secret.PA_ENABLE_MODEL_IMAGE
+- variable: env.normal.PA_ENABLE_MODEL_IMAGE
   description: "enable sending parkassist model image"
   type: enum
   options: 
