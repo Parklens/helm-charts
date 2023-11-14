@@ -26,9 +26,9 @@ serviceAccount:
 podAnnotations: {}
 
 podSecurityContext:
-  sysctls:
-  - name: net.core.somaxconn
-    value: "1024"
+  # sysctls:
+  # - name: net.core.somaxconn
+  #   value: "1024"
 
 securityContext: {}
 
@@ -67,6 +67,8 @@ autoscaling:
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
+
+terminationGracePeriodSeconds: 30
 
 nodeSelector: {}
 

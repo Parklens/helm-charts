@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "predictor-worker.fullname" . }}
+  name: {{ include "main-api.fullname" . }}
   labels:
-    {{- include "predictor-worker.labels" . | nindent 4 }}
+    {{- include "main-api.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "predictor-worker.selectorLabels" . | nindent 6 }}
+      {{- include "main-api.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,13 +18,13 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "predictor-worker.selectorLabels" . | nindent 8 }}
+        {{- include "main-api.selectorLabels" . | nindent 8 }}
     spec:
       {{- if .Values.imagePullSecrets }}
       imagePullSecrets:
         - name: {{ .Values.imagePullSecrets }}
       {{- end }}
-      serviceAccountName: {{ include "predictor-worker.serviceAccountName" . }}
+      serviceAccountName: {{ include "main-api.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -33,11 +33,43 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+            {{- range .Values.volumeMounts }}
+            - name: {{ .name }}
+              mountPath: {{ .mountPath }}
+              readOnly: {{ .readOnly }}
+            {{- end }}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            timeoutSeconds: 5
+            httpGet:
+              path: /health_check
+              port: http
+          readinessProbe:
+            timeoutSeconds: 5
+            httpGet:
+              path: /health_check
+              port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
             {{- include "helpers.list-env-variables" . | indent 12 }}
-          command: ["sh", "-c", "./predictor-worker"]
+          command: ["sh", "-c", "gunicorn -b 0.0.0.0:$${PORT} -c gunicorn_config.py run:app"]
+      volumes:
+        {{- range .Values.volumes }}
+        - name: {{ .name }}
+          {{- if .configMap }}
+          configMap:
+            name: {{ .configMap.name }}
+          {{- end }}
+          {{- if .secret }}
+          secret:
+            secretName: {{ .secret.secretName }}
+          {{- end }}
+        {{- end }}
       {{- if .Values.terminationGracePeriodSeconds }}
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
       {{- end }}
