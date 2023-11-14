@@ -71,7 +71,10 @@ questions:
   group: "Integration Config"
 - variable: env.secret.PA_ENABLE_MODEL_IMAGE
   description: "enable sending parkassist model image"
-  type: boolean
+  type: enum
+  options: 
+    - "false"
+    - "true"
   default: "false"
   required: true
   show_if: "env.normal.EVENT_SUBSCRIPTIONS=park_assist_event || env.normal.EVENT_SUBSCRIPTIONS=fopark_event, park_assist_event"

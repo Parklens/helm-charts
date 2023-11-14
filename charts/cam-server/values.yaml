@@ -78,7 +78,7 @@ env:
     PARKLENS_API_URL: "https://staging.parklens.com/v2"
     PARKLENS_PREDICTOR_URL: "https://staging.parklens.com/predictor/v1"
     PA_EVENT_URL: "change to pa url"
-    PA_ENABLE_MODEL_IMAGE: false
+    PA_ENABLE_MODEL_IMAGE: "false"
     # CAMERA_IDS: [1,2,3]
   # sensitive variables: If you do want to specify secrets, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'secret:'.
